@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Spicy Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger1.png"
+    },
+    {
+      "id": 2,
+      "name": "Cheese Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger2.png"
+    },
+    {
+      "id": 3,
+      "name": "Original Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger3.png"
+    },
+    {
+      "id": 4,
+      "name": "Classic Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger4.png"
+    },
+    {
+      "id": 5,
+      "name": "New York Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger5.png"
+    },
+    {
+      "id": 6,
+      "name": "Berlin Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger6.png"
+    },
+    {
+      "id": 7,
+      "name": "Malmö Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger7.png"
+    },
+    {
+      "id": 8,
+      "name": "Bacon Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger8.png"
+    },
+    {
+      "id": 9,
+      "name": "Triple Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger9.png"
+    },
+    {
+      "id": 10,
+      "name": "Great Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger10.png"
+    },
+    {
+      "id": 11,
+      "name": "Heavy Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger11.png"
+    },
+    {
+      "id": 12,
+      "name": "Big Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger12.png"
+    },
+    {
+      "id": 13,
+      "name": "Fresh Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger13.png"
+    },
+    {
+      "id": 14,
+      "name": "Fat Burger",
+      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "category": "Burgers",
+      "price": 129,
+      "image": "/images/products/burger14.png"
+    }
+  ],
+  "orders": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "password"
+    }
+  ]
+}
