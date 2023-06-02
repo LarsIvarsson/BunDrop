@@ -78,7 +78,7 @@ function Payment() {
         </div>
         <div>
           <input
-            type="text"
+            type="number"
             placeholder="Postnummer"
             onChange={handlePostalChange}
           />

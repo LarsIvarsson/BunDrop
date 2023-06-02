@@ -9,6 +9,12 @@ body {
   background-attachment: fixed;
 }
 
+h1,
+h2,
+h3 {
+  margin: 5px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -16,12 +22,12 @@ a {
   margin-right: 50px;
 }
 
-.navbar {
-  border-bottom: 1px solid black;
-  height: 90px;
+span {
+  margin: 0px 25px;
 }
 
-.dummy-navbar {
+.navbar {
+  border-bottom: 1px solid black;
   height: 90px;
 }
 
@@ -32,10 +38,30 @@ a {
   top: 0;
 }
 
+.dummy-navbar {
+  height: 90px;
+}
+
+.searchbar {
+  margin: 20px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  height: 30px;
+  width: 250px;
+}
+
 .flex-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .view-frame {
@@ -57,10 +83,6 @@ a {
 
 .trans-bg {
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-span {
-  margin: 25px;
 }
 
 .card-img {

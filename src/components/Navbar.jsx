@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div>
       <div className="dummy-navbar"></div>
-      <div className="flex-container white-bg fixed navbar">
+      <div className="flex-container justify-between white-bg fixed navbar">
         <Link to="/">
           <h1>BD</h1>
         </Link>

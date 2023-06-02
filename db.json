@@ -113,7 +113,28 @@
       "image": "/images/products/burger14.png"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 1
+    },
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 2
+    }
+  ],
   "users": [
     {
       "id": 1,

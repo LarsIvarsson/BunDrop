@@ -4,6 +4,7 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     let localItems = localStorage.getItem("shoppingCart");
@@ -11,21 +12,25 @@ function Cart() {
       localItems = [];
     } else {
       setCartItems(JSON.parse(localItems));
+      getTotalPrice();
     }
   }, []);
+
+  function getTotalPrice() {
+    let total = 0;
+    cartItems.forEach((i) => {
+      total += i.price * i.quantity;
+    });
+    setTotalPrice(total);
+  }
 
   function changeQuantity(id, quantity) {
     let itemToChange = cartItems.find((i) => i.id === id);
     itemToChange.quantity = quantity;
-
-    if (quantity === 0) {
-      cartItems.pop(itemToChange);
-    }
-
-    localStorage.setItem("shoppingCart", JSON.stringify(cartItems));
-
-    // TODO: remove item from cart if qty = 0
-    // gör det dynamiskt
+    const updatedCartItems = cartItems.filter((i) => i.quantity > 0);
+    setCartItems(updatedCartItems);
+    getTotalPrice();
+    localStorage.setItem("shoppingCart", JSON.stringify(updatedCartItems));
   }
 
   if (cartItems.length > 0) {
@@ -36,6 +41,7 @@ function Cart() {
         ))}
         <Link to="/betalning">
           <button className="order-btn">Betala</button>
+          <p>Total: {totalPrice} kr</p>
         </Link>
       </div>
     );
