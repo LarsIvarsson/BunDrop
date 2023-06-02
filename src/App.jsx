@@ -5,6 +5,7 @@ import Home from "./routes/Home";
 import Menu from "./routes/Menu";
 import Product from "./routes/Product";
 import Cart from "./routes/Cart";
+import Payment from "./routes/Payment";
 import NotFound from "./routes/NotFound";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/meny" element={<Menu />} />
         <Route path="/produkter/:productId" element={<Product />} />
         <Route path="/varukorg" element={<Cart />} />
+        <Route path="/betalning" element={<Payment />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

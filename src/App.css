@@ -71,6 +71,10 @@ span {
   max-width: 300px;
 }
 
+.cart-img {
+  max-width: 150px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -93,6 +97,7 @@ span {
   color: white;
   cursor: pointer;
   padding: 10px;
+  margin: 10px;
 }
 
 .btn-text {
@@ -104,4 +109,77 @@ span {
   flex-direction: column;
   width: 200px;
   gap: 5px;
+}
+
+.cart-item {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+.quantity-ctrl {
+  margin: 10px;
+}
+
+.kort-img {
+  max-width: 50px;
+}
+.swish-img {
+  max-width: 20px;
+}
+
+.swish {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  gap: 5px;
+}
+.kort {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border: 2px solid gray;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.no-btn {
+  background: none;
+  border: none;
+}
+.no-margin {
+  margin: 0;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body {
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid gray;
 }

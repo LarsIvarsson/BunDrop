@@ -5,7 +5,7 @@ function Menu() {
   return (
     <div>
       <div className="text-center trans-bg">
-        <span>Burgers</span> <span>Sides</span> <span>Drinks</span>
+        <h1>Sökruta</h1>
       </div>
       <ProductList />
     </div>
