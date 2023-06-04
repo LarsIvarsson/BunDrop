@@ -34,37 +34,41 @@ function Register() {
   return (
     <div className="view-frame white-bg text-center">
       <h1>Register</h1>
-      <div className="block-container">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username-input">Användarnamn: </label>
-          <input
-            onChange={handleUserameChange}
-            id="username-input"
-            type="text"
-            placeholder="Användarnamn"
-            value={username}
-          />
-          <label htmlFor="password-input">Lösenord: </label>
-          <input
-            onChange={handlePasswordChange}
-            id="password-input"
-            type="password"
-            placeholder="Lösenord"
-            value={password}
-          />
-          <label htmlFor="verify-input">Upprepa lösenord: </label>
-          <input
-            onChange={handleVerifyChange}
-            id="verify-input"
-            type="password"
-            placeholder="Upprepa lösenord"
-            value={verify}
-          />
-          <button type="submit" className="order-btn">
+
+      <form onSubmit={handleSubmit} className="block-container">
+        <label htmlFor="username-input">Användarnamn: </label>
+        <input
+          onChange={handleUserameChange}
+          className="input-field"
+          id="username-input"
+          type="text"
+          placeholder="Användarnamn"
+          value={username}
+        />
+        <label htmlFor="password-input">Lösenord: </label>
+        <input
+          onChange={handlePasswordChange}
+          className="input-field"
+          id="password-input"
+          type="password"
+          placeholder="Lösenord"
+          value={password}
+        />
+        <label htmlFor="verify-input">Upprepa lösenord: </label>
+        <input
+          onChange={handleVerifyChange}
+          className="input-field"
+          id="verify-input"
+          type="password"
+          placeholder="Upprepa lösenord"
+          value={verify}
+        />
+        <div>
+          <button type="submit" className="green-btn">
             Registrera konto
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }

@@ -38,7 +38,7 @@ function ProductCard(props) {
         <img className="card-img" src={props.product.image} alt="" />
         <h2>{props.product.name}</h2>
         <Link to={`/produkter/${props.product.id}`}>
-          <button className="order-btn">
+          <button className="green-btn">
             <h2 className="btn-text">Beställ</h2>
           </button>
         </Link>

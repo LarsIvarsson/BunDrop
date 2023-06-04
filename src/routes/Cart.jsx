@@ -27,6 +27,7 @@ function Cart() {
   function changeQuantity(id, quantity) {
     let itemToChange = cartItems.find((i) => i.id === id);
     itemToChange.quantity = quantity;
+
     const updatedCartItems = cartItems.filter((i) => i.quantity > 0);
     setCartItems(updatedCartItems);
     getTotalPrice();
@@ -35,12 +36,12 @@ function Cart() {
 
   if (cartItems.length > 0) {
     return (
-      <div className="view-frame white-bg">
+      <div className="view-frame white-bg text-center">
         {cartItems?.map((p) => (
           <CartItem key={p.id} product={p} changeQuantity={changeQuantity} />
         ))}
         <Link to="/betalning">
-          <button className="order-btn">Betala</button>
+          <button className="green-btn">Betala</button>
           <p>Total: {totalPrice} kr</p>
         </Link>
       </div>
@@ -49,7 +50,10 @@ function Cart() {
   return (
     <div className="view-frame white-bg">
       <h2>
-        Varukorgen är tom! Gå till<Link to="/meny">menyn</Link>
+        Varukorgen är tom! Gå till{" "}
+        <Link className="link-style" to="/meny">
+          menyn
+        </Link>
       </h2>
     </div>
   );

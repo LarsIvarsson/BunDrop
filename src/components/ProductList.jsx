@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+
   useEffect(() => {
     const getProducts = async () => {
       await fetch("http://localhost:7000/products")

@@ -36,6 +36,7 @@ function Payment() {
     if (name !== "" && adress !== "" && city !== "" && postal !== "")
       setShow(true);
   }
+
   function confirmPayment() {
     // save order to db.json
     let products = [];
@@ -67,10 +68,16 @@ function Payment() {
       />
       <form onSubmit={handleSubmit}>
         <div>
-          <input type="text" placeholder="Namn" onChange={handleNameChange} />
+          <input
+            className="input-field"
+            type="text"
+            placeholder="Namn"
+            onChange={handleNameChange}
+          />
         </div>
         <div>
           <input
+            className="input-field"
             type="text"
             placeholder="Adress"
             onChange={handleAdressChange}
@@ -78,25 +85,31 @@ function Payment() {
         </div>
         <div>
           <input
+            className="input-field"
             type="number"
             placeholder="Postnummer"
             onChange={handlePostalChange}
           />
         </div>
         <div>
-          <input type="text" placeholder="Stad" onChange={handleCityChange} />
+          <input
+            className="input-field"
+            type="text"
+            placeholder="Stad"
+            onChange={handleCityChange}
+          />
         </div>
       </form>
 
       <button onClick={handleSubmit} className="no-btn" type="submit">
-        <div className="swish">
+        <div className="payment-method">
           <span className="no-margin">Swish</span>
           <img className="swish-img" src="/images/logos/swish.jpg" alt="" />
         </div>
       </button>
 
       <button onClick={handleSubmit} className="no-btn" type="submit">
-        <div className="kort">
+        <div className="payment-method">
           <span className="no-margin">Kort</span>
           <img className="kort-img" src="/images/logos/cards.png" alt="" />
         </div>

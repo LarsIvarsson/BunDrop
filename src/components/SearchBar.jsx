@@ -7,7 +7,7 @@ function SearchBar({ filterProducts }) {
         onInput={(e) => {
           filterProducts(e.target.value);
         }}
-        className="searchbar"
+        className="input-field"
         type="text"
         placeholder="Sök..."
       />

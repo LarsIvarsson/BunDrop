@@ -10,9 +10,13 @@ function Modal(props) {
         <p> Köplogik </p> <hr />
         {/* Länken ska gå till bekräftelsesida */}
         <Link to="/meny">
-          <button onClick={props.confirmPayment}>Köp</button>
+          <button className="green-btn" onClick={props.confirmPayment}>
+            Köp
+          </button>
         </Link>
-        <button onClick={props.onClose}>Ångra</button>
+        <button className="cancel-btn" onClick={props.onClose}>
+          Ångra
+        </button>
       </div>
     </div>
   );
