@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const getProducts = async () => {
@@ -16,6 +17,11 @@ function ProductList() {
         });
     };
     getProducts();
+
+    const id = localStorage.getItem("signedInUser");
+    fetch(`http://localhost:7000/users/${id}`)
+      .then((res) => res.json())
+      .then((data) => setUser(data));
   }, []);
 
   function filterProducts(filter) {
@@ -28,6 +34,10 @@ function ProductList() {
     setFilteredProducts(tempProducts);
   }
 
+  function markAsFavorite(id, boolean) {
+    console.log("test", id, "value: ", boolean);
+  }
+
   return (
     <div>
       <div className="text-center trans-bg">
@@ -35,7 +45,7 @@ function ProductList() {
       </div>
       <div className="grid-container">
         {filteredProducts?.map((p) => (
-          <ProductCard key={p.id} product={p} />
+          <ProductCard key={p.id} product={p} markAsFavorite={markAsFavorite} />
         ))}
       </div>
     </div>

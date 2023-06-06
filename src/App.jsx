@@ -9,6 +9,7 @@ import Payment from "./routes/Payment";
 import NotFound from "./routes/NotFound";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
+import Confirmation from "./routes/Confirmation";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/produkter/:productId" element={<Product />} />
         <Route path="/varukorg" element={<Cart />} />
         <Route path="/betalning" element={<Payment />} />
+        <Route path="/bekraftelse" element={<Confirmation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

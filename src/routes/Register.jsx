@@ -19,12 +19,15 @@ function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    // TODO: add length checks
+
     if (password === verify) {
       await fetch("http://localhost:7000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: username, password: password }),
-      });
+      }).catch((err) => console.log(err));
     }
     setUsername("");
     setPassword("");

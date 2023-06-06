@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as farfaStar } from "@fortawesome/free-regular-svg-icons";
@@ -7,15 +7,9 @@ import { faStar as fasfaStar } from "@fortawesome/free-solid-svg-icons";
 function ProductCard(props) {
   const [fav, setFav] = useState(false);
 
-  function logClick() {
-    if (fav) {
-      setFav(false);
-      // remove fav from users
-    } else {
-      setFav(true);
-      // add fav to users favorites
-    }
-  }
+  useEffect(() => {
+    props.markAsFavorite(props.product.id, fav);
+  }, [fav]);
 
   if (props.product) {
     return (
@@ -23,13 +17,13 @@ function ProductCard(props) {
         <div>
           {fav ? (
             <FontAwesomeIcon
-              onClick={logClick}
+              onClick={() => setFav(!fav)}
               icon={fasfaStar}
               style={{ color: "green" }}
             />
           ) : (
             <FontAwesomeIcon
-              onClick={logClick}
+              onClick={() => setFav(!fav)}
               icon={farfaStar}
               style={{ color: "green" }}
             />

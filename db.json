@@ -113,53 +113,13 @@
       "image": "/images/products/burger14.png"
     }
   ],
-  "orders": [
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": 1
-    },
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": 2
-    },
-    {
-      "products": [
-        {
-          "name": "Spicy Burger",
-          "quantity": 2
-        }
-      ],
-      "totalPrice": 258,
-      "id": 3
-    },
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 3
-        }
-      ],
-      "totalPrice": 387,
-      "id": 4
-    }
-  ],
+  "orders": [],
   "users": [
     {
       "id": 1,
       "username": "user",
-      "password": "password"
+      "password": "password",
+      "favorites": []
     }
   ]
 }

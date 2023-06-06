@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
 
 function Payment() {
@@ -8,6 +9,7 @@ function Payment() {
   const [city, setCity] = useState("");
   const [show, setShow] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let localItems = localStorage.getItem("shoppingCart");
@@ -37,26 +39,27 @@ function Payment() {
       setShow(true);
   }
 
-  function confirmPayment() {
-    // save order to db.json
+  const confirmPayment = async () => {
     let products = [];
     let totalPrice = 0;
+
     cartItems.forEach((i) => {
       totalPrice += i.price * i.quantity;
       products.push({ name: i.name, quantity: i.quantity });
     });
 
-    fetch("http://localhost:7000/orders", {
+    await fetch("http://localhost:7000/orders", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ products: products, totalPrice: totalPrice }),
     });
 
-    // delete localStorage
     localStorage.removeItem("shoppingCart");
 
-    // show confirmation page  (atm => menu page)
-  }
+    navigate(`/bekraftelse`);
+  };
 
   return (
     <div className="view-frame white-bg text-center">
@@ -67,32 +70,42 @@ function Payment() {
         confirmPayment={confirmPayment}
       />
       <form onSubmit={handleSubmit}>
+        <label htmlFor="name-input">För- och efternamn:</label>
         <div>
           <input
+            id="name-input"
             className="input-field"
             type="text"
-            placeholder="Namn"
+            placeholder="För- och efternamn:"
             onChange={handleNameChange}
           />
         </div>
+        <label htmlFor="adress-input">Adress:</label>
+
         <div>
           <input
+            id="adress-input"
             className="input-field"
             type="text"
             placeholder="Adress"
             onChange={handleAdressChange}
           />
         </div>
+        <label htmlFor="postal-input">Postnummer:</label>
+
         <div>
           <input
+            id="postal-input"
             className="input-field"
             type="number"
             placeholder="Postnummer"
             onChange={handlePostalChange}
           />
         </div>
+        <label htmlFor="city-input">Stad:</label>
         <div>
           <input
+            id="city-input"
             className="input-field"
             type="text"
             placeholder="Stad"

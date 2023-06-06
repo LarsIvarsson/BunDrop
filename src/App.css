@@ -13,6 +13,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   box-sizing: border-box;
+  position: relative;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
 }
 
 h2 {
-  /* margin: 1.5rem; */
+  margin: 1.5rem;
   font-size: 2.4rem;
 }
 
@@ -34,6 +35,7 @@ h4 {
   margin: 0;
   font-size: 2rem;
 }
+
 em,
 p,
 label {
@@ -45,22 +47,40 @@ a {
   color: black;
 }
 
-.link-style {
-  text-decoration: underline;
-  color: darkblue;
+ul {
+  list-style: none;
+}
+
+li {
+  margin-right: 5rem;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 span {
   margin: 0rem 2.5rem;
 }
 
+.link-style {
+  text-decoration: underline;
+  color: darkblue;
+}
+
 .navbar {
   border-bottom: 1px solid black;
   height: 9rem;
 }
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+.burger-menu {
+  display: none;
+}
 
 .logo {
-  margin-left: 4.5rem;
+  margin-left: 5rem;
 }
 .logo:hover {
   font-size: 4rem;
@@ -108,9 +128,12 @@ span {
   width: 85vw;
   border-radius: 1.5rem;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
 }
 
 .text-center {
@@ -151,6 +174,7 @@ span {
   padding: 1.5rem;
   padding-bottom: 5rem;
 }
+
 .green-btn {
   border: none;
   border-radius: 0.5rem;
@@ -160,6 +184,7 @@ span {
   padding: 1rem;
   margin: 1rem;
 }
+
 .green-btn:hover {
   opacity: 0.5;
 }
@@ -192,6 +217,7 @@ span {
   text-decoration: none;
   overflow: hidden;
 }
+
 .order-btn:after {
   content: "";
   background: #90ee90;
@@ -205,6 +231,7 @@ span {
   transition: all 2s;
   border-radius: 0.5rem;
 }
+
 .order-btn:active:after {
   padding: 0;
   margin: 0;
@@ -238,6 +265,7 @@ span {
 .kort-img {
   max-width: 5rem;
 }
+
 .swish-img {
   max-width: 2rem;
 }
@@ -261,6 +289,7 @@ span {
   background: none;
   border: none;
 }
+
 .no-margin {
   margin: 0;
 }
@@ -286,9 +315,90 @@ span {
   border-bottom: 1px solid gray;
 }
 
-@media screen and (max-width: 850px) {
+.deliver-notice {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #ebebeb;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+}
+
+.deliver-notice > p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.show-counter {
+  padding: 0.5rem;
+}
+
+.show-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.show-counter .countdown {
+  line-height: 1.25rem;
+  padding: 0 0.75rem 0 0.75rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-counter .countdown > p {
+  margin: 1.6rem;
+}
+
+.show-counter .countdown > span {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  /* line-height: 1rem; */
+}
+
+@media screen and (max-width: 768px) {
   html {
     font-size: 9px;
+  }
+
+  .flex-container {
+    z-index: 2;
+  }
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+    color: black;
+    font-size: 3.4rem;
+    margin-right: 5rem;
+  }
+
+  .flex-container ul {
+    display: none;
+    padding: 0;
+    position: absolute;
+    top: 7rem;
+    left: 0rem;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 7rem);
+    background-color: white;
+    border-top: 1px solid black;
+  }
+  .flex-container li {
+    text-align: center;
+    margin: 3rem;
+  }
+  .flex-container li:hover {
+    background-color: #eee;
+  }
+  .flex-container .expanded ul {
+    display: block;
   }
 
   .grid-container {

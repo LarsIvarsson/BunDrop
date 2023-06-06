@@ -1,24 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
   return (
     <div>
       <div className="dummy-navbar"></div>
       <div className="flex-container justify-between white-bg fixed navbar">
-        <Link to="/">
-          <h1 className="logo">BD</h1>
-        </Link>
-        <div className="flex-container">
-          <Link to="/meny">
-            <h4 className="navbar-link">Meny</h4>
-          </Link>
-          <Link to="/varukorg">
-            <h4 className="navbar-link">Varukorg</h4>
-          </Link>
-          <Link to="/login">
-            <h4 className="navbar-link">Logga in</h4>
-          </Link>
+        <h1 className="logo">
+          <Link to="/">BD</Link>
+        </h1>
+
+        <div
+          className={
+            isNavExpanded ? "flex-container expanded" : "flex-container"
+          }
+        >
+          <ul className="nav-container">
+            <Link
+              onClick={() => {
+                setIsNavExpanded(!isNavExpanded);
+              }}
+              to="/meny"
+            >
+              <li>Meny</li>
+            </Link>
+            <Link
+              onClick={() => {
+                setIsNavExpanded(!isNavExpanded);
+              }}
+              to="/varukorg"
+            >
+              <li>Varukorg</li>
+            </Link>
+            <Link
+              onClick={() => {
+                setIsNavExpanded(!isNavExpanded);
+              }}
+              to="/login"
+            >
+              <li>Logga in</li>
+            </Link>
+          </ul>
+          <FontAwesomeIcon
+            onClick={() => {
+              setIsNavExpanded(!isNavExpanded);
+            }}
+            className="burger-menu"
+            icon={faBars}
+          />
         </div>
       </div>
     </div>

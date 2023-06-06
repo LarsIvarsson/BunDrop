@@ -12,9 +12,12 @@ function Cart() {
       localItems = [];
     } else {
       setCartItems(JSON.parse(localItems));
-      getTotalPrice();
     }
   }, []);
+
+  useEffect(() => {
+    getTotalPrice();
+  }, [cartItems]);
 
   function getTotalPrice() {
     let total = 0;
@@ -42,8 +45,8 @@ function Cart() {
         ))}
         <Link to="/betalning">
           <button className="green-btn">Betala</button>
-          <p>Total: {totalPrice} kr</p>
         </Link>
+        <p>Total: {totalPrice} kr</p>
       </div>
     );
   }
