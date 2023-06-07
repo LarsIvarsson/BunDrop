@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Modal(props) {
   if (!props.show) {

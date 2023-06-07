@@ -8,8 +8,19 @@ function ProductCard(props) {
   const [fav, setFav] = useState(false);
 
   useEffect(() => {
-    props.markAsFavorite(props.product.id, fav);
-  }, [fav]);
+    if (props.userFavorites) {
+      props.userFavorites.forEach((f) => {
+        if (f.id === props.product.id) {
+          setFav(true);
+        }
+      });
+    }
+  }, [props.userFavorites]);
+
+  function toggleFavorite() {
+    setFav(!fav);
+    props.markAsFavorite(props.product.id);
+  }
 
   if (props.product) {
     return (
@@ -17,13 +28,13 @@ function ProductCard(props) {
         <div>
           {fav ? (
             <FontAwesomeIcon
-              onClick={() => setFav(!fav)}
+              onClick={toggleFavorite}
               icon={fasfaStar}
               style={{ color: "green" }}
             />
           ) : (
             <FontAwesomeIcon
-              onClick={() => setFav(!fav)}
+              onClick={toggleFavorite}
               icon={farfaStar}
               style={{ color: "green" }}
             />

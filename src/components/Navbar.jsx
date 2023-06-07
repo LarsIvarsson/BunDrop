@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-function Navbar() {
+function Navbar({ signedIn, changeSignedIn }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(signedIn);
+
+  useEffect(() => {
+    setIsSignedIn(signedIn);
+  }, [signedIn]);
+
+  function signOut() {
+    localStorage.removeItem("signedInUser");
+    localStorage.removeItem("shoppingCart");
+    changeSignedIn();
+  }
 
   return (
     <div>
@@ -29,6 +39,7 @@ function Navbar() {
             >
               <li>Meny</li>
             </Link>
+
             <Link
               onClick={() => {
                 setIsNavExpanded(!isNavExpanded);
@@ -37,14 +48,30 @@ function Navbar() {
             >
               <li>Varukorg</li>
             </Link>
-            <Link
-              onClick={() => {
-                setIsNavExpanded(!isNavExpanded);
-              }}
-              to="/login"
-            >
-              <li>Logga in</li>
-            </Link>
+            {isSignedIn ? (
+              <Link
+                onClick={() => {
+                  setIsNavExpanded(!isNavExpanded);
+                }}
+                to="/din-sida"
+              >
+                <li>Din sida</li>
+              </Link>
+            ) : null}
+            {isSignedIn ? (
+              <Link onClick={signOut}>
+                <li>Logga ut</li>
+              </Link>
+            ) : (
+              <Link
+                onClick={() => {
+                  setIsNavExpanded(!isNavExpanded);
+                }}
+                to="/login"
+              >
+                <li>Logga in</li>
+              </Link>
+            )}
           </ul>
           <FontAwesomeIcon
             onClick={() => {

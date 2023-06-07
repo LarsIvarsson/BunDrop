@@ -113,13 +113,120 @@
       "image": "/images/products/burger14.png"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 387,
+      "id": 1
+    },
+    {
+      "products": [
+        {
+          "name": "Spicy Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 2
+    },
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 258,
+      "id": 3
+    },
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 4
+    },
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 5
+    },
+    {
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 129,
+      "id": 6
+    },
+    {
+      "products": [
+        {
+          "name": "Spicy Burger",
+          "quantity": 1
+        },
+        {
+          "name": "Original Burger",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 387,
+      "id": 7
+    }
+  ],
   "users": [
     {
       "id": 1,
       "username": "user",
       "password": "password",
-      "favorites": []
+      "orders": [
+        {
+          "products": [
+            {
+              "name": "Spicy Burger",
+              "quantity": 1
+            },
+            {
+              "name": "Original Burger",
+              "quantity": 2
+            }
+          ],
+          "totalPrice": 387
+        }
+      ],
+      "favorites": [
+        {
+          "id": 1
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "username": "lars",
+      "password": "hemlis",
+      "favorites": [
+        {
+          "id": 1
+        }
+      ],
+      "id": 2
     }
   ]
 }

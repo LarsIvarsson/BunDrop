@@ -239,6 +239,15 @@ span {
   transition: 0s;
 }
 
+.qty-btn {
+  background-color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 0.2rem solid black;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
 .btn-text {
   margin: 0;
 }
@@ -326,7 +335,7 @@ span {
 .deliver-notice > p {
   font-size: 2.5rem;
   font-weight: bold;
-  color: red;
+  color: green;
 }
 
 .show-counter {
@@ -370,6 +379,7 @@ span {
   .flex-container {
     z-index: 2;
   }
+
   .burger-menu {
     display: block;
     cursor: pointer;
@@ -386,13 +396,15 @@ span {
     left: 0rem;
     flex-direction: column;
     width: 100%;
-    height: calc(100vh - 7rem);
+    /* height: calc(100vh - 7rem); */
     background-color: white;
     border-top: 1px solid black;
+    border-bottom: 1px solid black;
   }
   .flex-container li {
     text-align: center;
-    margin: 3rem;
+    height: 5rem;
+    margin: 5rem;
   }
   .flex-container li:hover {
     background-color: #eee;

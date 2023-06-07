@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:7000/users")
@@ -29,6 +30,8 @@ function Login() {
         localStorage.setItem("signedInUser", u.id);
         setUsername("");
         setPassword("");
+        props.changeSignedIn();
+        navigate(`/`);
       }
     });
   }

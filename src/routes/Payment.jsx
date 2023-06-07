@@ -9,6 +9,8 @@ function Payment() {
   const [city, setCity] = useState("");
   const [show, setShow] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [id, setId] = useState(localStorage.getItem("signedInUser"));
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +21,18 @@ function Payment() {
       setCartItems(JSON.parse(localItems));
     }
   }, []);
+
+  useEffect(() => {
+    const getUser = async () => {
+      await fetch(`http://localhost:7000/users/${id}`)
+        .then((res) => res.json())
+        .then((data) => setUser(data));
+    };
+
+    if (id) {
+      getUser();
+    }
+  }, [id]);
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -56,7 +70,26 @@ function Payment() {
       body: JSON.stringify({ products: products, totalPrice: totalPrice }),
     });
 
-    localStorage.removeItem("shoppingCart");
+    if (user.id) {
+      user.orders.push({ products: products, totalPrice: totalPrice });
+      fetch(`http://localhost:7000/users/${user.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      })
+        .then((res) => {
+          if (res.ok) {
+            console.log("User order history updated");
+          } else {
+            console.log("Failed to save order");
+          }
+        })
+        .catch((error) => {
+          console.error("Error: ", error);
+        });
+    }
+
+    await localStorage.removeItem("shoppingCart");
 
     navigate(`/bekraftelse`);
   };
