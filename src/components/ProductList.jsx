@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import SearchBar from "../components/SearchBar";
+import useFetch from "../hooks/useFetch";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [user, setUser] = useState({});
   const [id, setId] = useState(localStorage.getItem("signedInUser"));
+  const user = useFetch(`http://localhost:7000/users/${id}`, {});
 
   useEffect(() => {
     const getProducts = async () => {
@@ -20,18 +21,6 @@ function ProductList() {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    const getUser = async () => {
-      await fetch(`http://localhost:7000/users/${id}`)
-        .then((res) => res.json())
-        .then((data) => setUser(data));
-    };
-
-    if (id) {
-      getUser();
-    }
-  }, [id]);
-
   function filterProducts(filter) {
     const tempProducts = [...products].filter((p) => {
       if (p.name.toLowerCase().includes(filter.toLowerCase())) {
@@ -42,17 +31,17 @@ function ProductList() {
     setFilteredProducts(tempProducts);
   }
 
-  function markAsFavorite(id) {
+  function markAsFavorite(product) {
     // check if product is favorite
-    let favProd = user.favorites.find((p) => p.id === id);
+    let favProd = user.favorites.find((p) => p.id === product.id);
 
     // if it is favorite
     if (favProd) {
       // remove from user favorites
-      user.favorites = user.favorites.filter((f) => f.id !== id);
+      user.favorites = user.favorites.filter((f) => f.id !== product.id);
     } else {
       // add to favorites
-      user.favorites.push({ id: id });
+      user.favorites.push(product);
     }
 
     // save to db whit PUT request
@@ -84,7 +73,7 @@ function ProductList() {
             key={p.id}
             product={p}
             markAsFavorite={markAsFavorite}
-            userFavorites={user.favorites}
+            userFavorites={user && user.favorites ? user.favorites : null}
           />
         ))}
       </div>

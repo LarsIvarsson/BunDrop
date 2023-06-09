@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import QuantityControl from "../components/QuantityControl";
+import useFetch from "../hooks/useFetch";
 
 function Product() {
   const { productId } = useParams();
-  const [product, setProduct] = useState({});
+  const product = useFetch(`http://localhost:7000/products/${productId}`, {});
   const [quantity, setQuantity] = useState(1);
-
-  useEffect(() => {
-    fetch(`http://localhost:7000/products/${productId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProduct(data);
-      });
-  }, [productId]);
 
   function addToCart() {
     let shoppingCart = localStorage.getItem("shoppingCart");
@@ -38,7 +31,6 @@ function Product() {
     }
   }
 
-  // TODO: Refaktorera för den är en del av Cart också
   function changeQuantity(quantity) {
     setQuantity(quantity);
   }
@@ -47,7 +39,10 @@ function Product() {
     return (
       <div className="view-frame white-bg text-center">
         <h1>{product.name}</h1>
-        <img className="prod-img" src={product.image} alt="" />
+        <div>
+          <img className="prod-img" src={product.image} alt="" />
+        </div>
+        <em>{product.description}</em>
 
         <QuantityControl
           totalPrice={product.price * quantity}
@@ -55,9 +50,15 @@ function Product() {
           changeQuantity={changeQuantity}
         />
 
-        <button onClick={addToCart} className="order-btn">
-          <h2 className="btn-text">Beställ</h2>
-        </button>
+        {quantity > 0 ? (
+          <button onClick={addToCart} className="order-btn">
+            <h2 className="btn-text">Beställ</h2>
+          </button>
+        ) : (
+          <button className="green-btn">
+            <h2 className="btn-text">Beställ</h2>
+          </button>
+        )}
       </div>
     );
   }

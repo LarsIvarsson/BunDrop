@@ -13,11 +13,11 @@ const DeliverNotice = () => {
 const ShowCounter = ({ hours, minutes, seconds }) => {
   return (
     <div className="show-counter">
-      <DateTimeDisplay value={hours} type={"Timmar"} isDanger={false} />
+      <DateTimeDisplay value={hours} type={"Timmar"} />
       <p>:</p>
-      <DateTimeDisplay value={minutes} type={"Minuter"} isDanger={false} />
+      <DateTimeDisplay value={minutes} type={"Minuter"} />
       <p>:</p>
-      <DateTimeDisplay value={seconds} type={"Sekunder"} isDanger={false} />
+      <DateTimeDisplay value={seconds} type={"Sekunder"} />
     </div>
   );
 };

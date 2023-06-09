@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../components/Modal";
+import useFetch from "../hooks/useFetch";
 
 function Payment() {
   const [name, setName] = useState("");
@@ -10,7 +11,8 @@ function Payment() {
   const [show, setShow] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [id, setId] = useState(localStorage.getItem("signedInUser"));
-  const [user, setUser] = useState({});
+  const user = useFetch(`http://localhost:7000/users/${id}`, {});
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,35 +24,45 @@ function Payment() {
     }
   }, []);
 
-  useEffect(() => {
-    const getUser = async () => {
-      await fetch(`http://localhost:7000/users/${id}`)
-        .then((res) => res.json())
-        .then((data) => setUser(data));
-    };
-
-    if (id) {
-      getUser();
-    }
-  }, [id]);
-
   function handleNameChange(e) {
+    setError("");
     setName(e.target.value);
   }
   function handleAdressChange(e) {
+    setError("");
     setAdress(e.target.value);
   }
   function handlePostalChange(e) {
+    setError("");
     setPostal(e.target.value);
   }
   function handleCityChange(e) {
+    setError("");
     setCity(e.target.value);
   }
 
-  function handleSubmit(e) {
+  function validateInputs(e) {
     e.preventDefault();
-    if (name !== "" && adress !== "" && city !== "" && postal !== "")
+
+    if (name.length < 5) {
+      setError("Ditt namn måste innehålla 5 bokstäver");
+    } else if (/\d/.test(name)) {
+      setError("Ditt namn får inte innehålla siffror");
+    } else if (
+      adress.length < 6 ||
+      !/\d/.test(adress) ||
+      !/[a-öA-Ö]/i.test(adress)
+    ) {
+      setError("Din adress måste innehålla minst 5 bokstäver och 1 siffra");
+    } else if (postal.trim().length !== 5 || !/^\d+$/.test(postal)) {
+      setError(
+        "Ditt postnummer får bara innehålla siffror och måste vara 5 siffror"
+      );
+    } else if (city.length < 3 || /\d/.test(city)) {
+      setError("Stad måste vara minst 3 bokstäver och inte innehålla siffror");
+    } else {
       setShow(true);
+    }
   }
 
   const confirmPayment = async () => {
@@ -62,36 +74,37 @@ function Payment() {
       products.push({ name: i.name, quantity: i.quantity });
     });
 
-    await fetch("http://localhost:7000/orders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ products: products, totalPrice: totalPrice }),
-    });
+    try {
+      await fetch("http://localhost:7000/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products: products, totalPrice: totalPrice }),
+      });
 
-    if (user.id) {
-      user.orders.push({ products: products, totalPrice: totalPrice });
-      fetch(`http://localhost:7000/users/${user.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      })
-        .then((res) => {
-          if (res.ok) {
-            console.log("User order history updated");
-          } else {
-            console.log("Failed to save order");
-          }
-        })
-        .catch((error) => {
-          console.error("Error: ", error);
+      if (user.id) {
+        // save to signed-in user order history
+        user.orders.push({ products: products, totalPrice: totalPrice });
+
+        const response = await fetch(`http://localhost:7000/users/${user.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
         });
+        if (response.ok) {
+          console.log("Användarens beställningshistorik uppdaterad");
+        } else {
+          console.log("Något gick snett");
+        }
+      }
+
+      localStorage.removeItem("shoppingCart");
+
+      navigate(`/bekraftelse`);
+    } catch (err) {
+      console.error("Felmedd.: ", err);
     }
-
-    await localStorage.removeItem("shoppingCart");
-
-    navigate(`/bekraftelse`);
   };
 
   return (
@@ -102,7 +115,8 @@ function Payment() {
         onClose={() => setShow(false)}
         confirmPayment={confirmPayment}
       />
-      <form onSubmit={handleSubmit}>
+
+      <form onSubmit={validateInputs}>
         <label htmlFor="name-input">För- och efternamn:</label>
         <div>
           <input
@@ -113,8 +127,8 @@ function Payment() {
             onChange={handleNameChange}
           />
         </div>
-        <label htmlFor="adress-input">Adress:</label>
 
+        <label htmlFor="adress-input">Adress:</label>
         <div>
           <input
             id="adress-input"
@@ -124,8 +138,8 @@ function Payment() {
             onChange={handleAdressChange}
           />
         </div>
-        <label htmlFor="postal-input">Postnummer:</label>
 
+        <label htmlFor="postal-input">Postnummer:</label>
         <div>
           <input
             id="postal-input"
@@ -135,6 +149,7 @@ function Payment() {
             onChange={handlePostalChange}
           />
         </div>
+
         <label htmlFor="city-input">Stad:</label>
         <div>
           <input
@@ -145,21 +160,23 @@ function Payment() {
             onChange={handleCityChange}
           />
         </div>
+
+        <p className="text-warning">{error}</p>
+
+        <button className="no-btn" type="submit">
+          <div className="payment-method">
+            <span className="no-margin">Swish</span>
+            <img className="swish-img" src="/images/logos/swish.jpg" alt="" />
+          </div>
+        </button>
+
+        <button className="no-btn" type="submit">
+          <div className="payment-method">
+            <span className="no-margin">Kort</span>
+            <img className="kort-img" src="/images/logos/cards.png" alt="" />
+          </div>
+        </button>
       </form>
-
-      <button onClick={handleSubmit} className="no-btn" type="submit">
-        <div className="payment-method">
-          <span className="no-margin">Swish</span>
-          <img className="swish-img" src="/images/logos/swish.jpg" alt="" />
-        </div>
-      </button>
-
-      <button onClick={handleSubmit} className="no-btn" type="submit">
-        <div className="payment-method">
-          <span className="no-margin">Kort</span>
-          <img className="kort-img" src="/images/logos/cards.png" alt="" />
-        </div>
-      </button>
     </div>
   );
 }

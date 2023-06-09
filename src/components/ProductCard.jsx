@@ -19,7 +19,7 @@ function ProductCard(props) {
 
   function toggleFavorite() {
     setFav(!fav);
-    props.markAsFavorite(props.product.id);
+    props.markAsFavorite(props.product);
   }
 
   if (props.product) {

@@ -16,11 +16,11 @@ function QuantityControl(props) {
       <h3>{props.totalPrice} kr</h3>
       <div className="quantity-ctrl flex-container justify-center">
         <button className="qty-btn" onClick={decreaseQty}>
-          -
+          &#8722;
         </button>
-        <span>{props.quantity}</span>
+        <span className="qty-num">{props.quantity}</span>
         <button className="qty-btn" onClick={increaseQty}>
-          +
+          &#43;
         </button>
       </div>
     </div>

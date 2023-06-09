@@ -11,105 +11,105 @@
     {
       "id": 2,
       "name": "Cheese Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "The nicest most cheese burger ever. Chef favorite.",
       "category": "Burgers",
-      "price": 129,
+      "price": 119,
       "image": "/images/products/burger2.png"
     },
     {
       "id": 3,
       "name": "Original Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "True classic never goes out of style.css",
       "category": "Burgers",
-      "price": 129,
+      "price": 122,
       "image": "/images/products/burger3.png"
     },
     {
       "id": 4,
       "name": "Classic Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "True to its roots, this brings joy to our hearts!",
       "category": "Burgers",
-      "price": 129,
+      "price": 139,
       "image": "/images/products/burger4.png"
     },
     {
       "id": 5,
       "name": "New York Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Like a walk down memory lane. Nostalgic.",
       "category": "Burgers",
-      "price": 129,
+      "price": 109,
       "image": "/images/products/burger5.png"
     },
     {
       "id": 6,
       "name": "Berlin Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Sehr gut bürger, jawohl!",
       "category": "Burgers",
-      "price": 129,
+      "price": 115,
       "image": "/images/products/burger6.png"
     },
     {
       "id": 7,
       "name": "Malmö Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Funky burger with hidden falafel from Möllan inside. Blandad sås.",
       "category": "Burgers",
-      "price": 129,
+      "price": 105,
       "image": "/images/products/burger7.png"
     },
     {
       "id": 8,
       "name": "Bacon Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Extra salt and extra smoke. Taste like wild fire.",
       "category": "Burgers",
-      "price": 129,
+      "price": 108,
       "image": "/images/products/burger8.png"
     },
     {
       "id": 9,
       "name": "Triple Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "If (hungry) { buy this }",
       "category": "Burgers",
-      "price": 129,
+      "price": 100,
       "image": "/images/products/burger9.png"
     },
     {
       "id": 10,
       "name": "Great Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Believe the Tiger, they are Grrrreat!",
       "category": "Burgers",
-      "price": 129,
+      "price": 99,
       "image": "/images/products/burger10.png"
     },
     {
       "id": 11,
       "name": "Heavy Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "This unit packs some serious weight: bold;",
       "category": "Burgers",
-      "price": 129,
+      "price": 132,
       "image": "/images/products/burger11.png"
     },
     {
       "id": 12,
       "name": "Big Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "Not too small. About average I would say.",
       "category": "Burgers",
-      "price": 129,
+      "price": 126,
       "image": "/images/products/burger12.png"
     },
     {
       "id": 13,
       "name": "Fresh Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "This one is not old. It is very fresh.",
       "category": "Burgers",
-      "price": 129,
+      "price": 111,
       "image": "/images/products/burger13.png"
     },
     {
       "id": 14,
       "name": "Fat Burger",
-      "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
+      "description": "For the rainy days, this is your friend. We want this as a blanket.",
       "category": "Burgers",
-      "price": 129,
+      "price": 134,
       "image": "/images/products/burger14.png"
     }
   ],
@@ -117,76 +117,36 @@
     {
       "products": [
         {
-          "name": "Cheese Burger",
-          "quantity": 3
+          "name": "Original Burger",
+          "quantity": 1
         }
       ],
-      "totalPrice": 387,
+      "totalPrice": 129,
       "id": 1
     },
     {
       "products": [
         {
           "name": "Spicy Burger",
+          "quantity": 2
+        },
+        {
+          "name": "Cheese Burger",
           "quantity": 1
         }
       ],
-      "totalPrice": 129,
+      "totalPrice": 387,
       "id": 2
     },
     {
       "products": [
         {
-          "name": "Cheese Burger",
+          "name": "Berlin Burger",
           "quantity": 2
         }
       ],
       "totalPrice": 258,
       "id": 3
-    },
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": 4
-    },
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": 5
-    },
-    {
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": 6
-    },
-    {
-      "products": [
-        {
-          "name": "Spicy Burger",
-          "quantity": 1
-        },
-        {
-          "name": "Original Burger",
-          "quantity": 2
-        }
-      ],
-      "totalPrice": 387,
-      "id": 7
     }
   ],
   "users": [
@@ -194,39 +154,8 @@
       "id": 1,
       "username": "user",
       "password": "password",
-      "orders": [
-        {
-          "products": [
-            {
-              "name": "Spicy Burger",
-              "quantity": 1
-            },
-            {
-              "name": "Original Burger",
-              "quantity": 2
-            }
-          ],
-          "totalPrice": 387
-        }
-      ],
-      "favorites": [
-        {
-          "id": 1
-        },
-        {
-          "id": 3
-        }
-      ]
-    },
-    {
-      "username": "lars",
-      "password": "hemlis",
-      "favorites": [
-        {
-          "id": 1
-        }
-      ],
-      "id": 2
+      "orders": [],
+      "favorites": []
     }
   ]
 }

@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState([]);
+  const users = useFetch("http://localhost:7000/users", []);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:7000/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.log(err));
-  }, []);
-
   function handleUserameChange(e) {
+    setError("");
     setUsername(e.target.value);
   }
 
   function handlePasswordChange(e) {
+    setError("");
     setPassword(e.target.value);
   }
 
@@ -32,6 +29,8 @@ function Login(props) {
         setPassword("");
         props.changeSignedIn();
         navigate(`/`);
+      } else {
+        setError("Username or password not correct");
       }
     });
   }
@@ -49,6 +48,7 @@ function Login(props) {
           type="text"
           placeholder="Användarnamn"
           value={username}
+          required
         />
 
         <label htmlFor="password-input">Lösenord: </label>
@@ -59,9 +59,11 @@ function Login(props) {
           type="password"
           placeholder="Lösenord"
           value={password}
+          required
         />
 
         <div>
+          <p className="text-warning">{error}</p>
           <button type="submit" className="green-btn">
             Logga in
           </button>

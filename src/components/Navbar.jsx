@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +6,20 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 function Navbar({ signedIn, changeSignedIn }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(signedIn);
+  const navbarRef = useRef(null);
+
+  const handleClickOutside = (e) => {
+    if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+      setIsNavExpanded(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     setIsSignedIn(signedIn);
@@ -29,6 +43,7 @@ function Navbar({ signedIn, changeSignedIn }) {
           className={
             isNavExpanded ? "flex-container expanded" : "flex-container"
           }
+          ref={navbarRef}
         >
           <ul className="nav-container">
             <Link
