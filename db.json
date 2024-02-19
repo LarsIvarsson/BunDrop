@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Spicy Burger",
       "description": "A hot burger with pickled jalapeños and chipotle mayo. Beware!",
       "category": "Burgers",
@@ -9,7 +9,7 @@
       "image": "/images/products/burger1.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cheese Burger",
       "description": "The nicest most cheese burger ever. Chef favorite.",
       "category": "Burgers",
@@ -17,7 +17,7 @@
       "image": "/images/products/burger2.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Original Burger",
       "description": "True classic never goes out of style.css",
       "category": "Burgers",
@@ -25,7 +25,7 @@
       "image": "/images/products/burger3.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Classic Burger",
       "description": "True to its roots, this brings joy to our hearts!",
       "category": "Burgers",
@@ -33,7 +33,7 @@
       "image": "/images/products/burger4.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "New York Burger",
       "description": "Like a walk down memory lane. Nostalgic.",
       "category": "Burgers",
@@ -41,7 +41,7 @@
       "image": "/images/products/burger5.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Berlin Burger",
       "description": "Sehr gut bürger, jawohl!",
       "category": "Burgers",
@@ -49,7 +49,7 @@
       "image": "/images/products/burger6.png"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Malmö Burger",
       "description": "Funky burger with hidden falafel from Möllan inside. Blandad sås.",
       "category": "Burgers",
@@ -57,7 +57,7 @@
       "image": "/images/products/burger7.png"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Bacon Burger",
       "description": "Extra salt and extra smoke. Taste like wild fire.",
       "category": "Burgers",
@@ -65,7 +65,7 @@
       "image": "/images/products/burger8.png"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Triple Burger",
       "description": "If (hungry) { buy this }",
       "category": "Burgers",
@@ -73,7 +73,7 @@
       "image": "/images/products/burger9.png"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Great Burger",
       "description": "Believe the Tiger, they are Grrrreat!",
       "category": "Burgers",
@@ -81,7 +81,7 @@
       "image": "/images/products/burger10.png"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Heavy Burger",
       "description": "This unit packs some serious weight: bold;",
       "category": "Burgers",
@@ -89,7 +89,7 @@
       "image": "/images/products/burger11.png"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Big Burger",
       "description": "Not too small. About average I would say.",
       "category": "Burgers",
@@ -97,7 +97,7 @@
       "image": "/images/products/burger12.png"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Fresh Burger",
       "description": "This one is not old. It is very fresh.",
       "category": "Burgers",
@@ -105,7 +105,7 @@
       "image": "/images/products/burger13.png"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Fat Burger",
       "description": "For the rainy days, this is your friend. We want this as a blanket.",
       "category": "Burgers",
@@ -122,7 +122,7 @@
         }
       ],
       "totalPrice": 129,
-      "id": 1
+      "id": "1"
     },
     {
       "products": [
@@ -136,7 +136,7 @@
         }
       ],
       "totalPrice": 387,
-      "id": 2
+      "id": "2"
     },
     {
       "products": [
@@ -146,12 +146,22 @@
         }
       ],
       "totalPrice": 258,
-      "id": 3
+      "id": "3"
+    },
+    {
+      "id": "fcf3",
+      "products": [
+        {
+          "name": "Cheese Burger",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 238
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "user",
       "password": "password",
       "orders": [],
