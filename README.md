@@ -2,7 +2,11 @@
 
 Created with ReactJS + vite.
 
-To run, first start the JSON database in a console with this command:
+Before running this web app, install node packages in a console:
+
+`npm install`
+
+To run, first start the JSON database with this command:
 
 `npm run json-server`
 
@@ -10,7 +14,7 @@ When DB is up and running, simply start the app in a second console with followi
 
 `npm run dev`
 
-and ctrl + click on the link in the console.
+and ctrl + click on the localhost link in the console.
 
 # About the application
 
