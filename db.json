@@ -114,50 +114,6 @@
     }
   ],
   "orders": [
-    {
-      "products": [
-        {
-          "name": "Original Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 129,
-      "id": "1"
-    },
-    {
-      "products": [
-        {
-          "name": "Spicy Burger",
-          "quantity": 2
-        },
-        {
-          "name": "Cheese Burger",
-          "quantity": 1
-        }
-      ],
-      "totalPrice": 387,
-      "id": "2"
-    },
-    {
-      "products": [
-        {
-          "name": "Berlin Burger",
-          "quantity": 2
-        }
-      ],
-      "totalPrice": 258,
-      "id": "3"
-    },
-    {
-      "id": "fcf3",
-      "products": [
-        {
-          "name": "Cheese Burger",
-          "quantity": 2
-        }
-      ],
-      "totalPrice": 238
-    }
   ],
   "users": [
     {
