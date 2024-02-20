@@ -33,6 +33,9 @@ function Modal(props) {
     setName(e.target.value);
   };
 
+  function validateInputs(e) {
+    e.preventDefault();
+  };
   
   
   if (!props.show) {
@@ -41,22 +44,31 @@ function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-body" ref={modalRef}>
-        {props.paymentMethod === 'Swish' && (
-          <>
-            <p>Swish-specific content</p>
-            <hr />
-          </>
-        )}
+        <form onSubmit={validateInputs}>
+          {props.paymentMethod === 'Swish' && (
+            <>
+              <p>Ange ditt telefonnummer för att betala med swish:</p>
+              <input 
+                type="tel"
+                onChange={handlePhoneNrChange}
+                placeholder="0000123123"
+                pattern="[0-9]{10}" 
+                required
+              />
+              <hr />
+            </>
+          )}
 
-        {props.paymentMethod === 'Kort' && (
-          <>
-            <p>Kort-specific content</p>
-            <hr />
-          </>
-        )}
-        <button className="green-btn" onClick={props.confirmPayment}>
-          Köp
-        </button>
+          {props.paymentMethod === 'Kort' && (
+            <>
+              <p>Kort-specific content</p>
+              <hr />
+            </>
+          )}
+          <button className="green-btn" type="submit" onClick={props.confirmPayment}>
+            Köp
+          </button>
+        </form>
         <button className="cancel-btn" onClick={props.onClose}>
           Ångra
         </button>
