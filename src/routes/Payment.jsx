@@ -9,6 +9,7 @@ function Payment() {
   const [postal, setPostal] = useState("");
   const [city, setCity] = useState("");
   const [show, setShow] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState(null);
   const [cartItems, setCartItems] = useState([]);
   const [id, setId] = useState(localStorage.getItem("signedInUser"));
   const user = useFetch(`http://localhost:7000/users/${id}`, {});
@@ -114,6 +115,7 @@ function Payment() {
         show={show}
         onClose={() => setShow(false)}
         confirmPayment={confirmPayment}
+        paymentMethod={paymentMethod}
       />
 
       <form onSubmit={validateInputs}>
@@ -163,14 +165,14 @@ function Payment() {
 
         <p className="text-warning">{error}</p>
 
-        <button className="no-btn" type="submit">
+        <button className="no-btn" type="submit" onClick={() => setPaymentMethod("Swish")}>
           <div className="payment-method">
             <span className="no-margin">Swish</span>
             <img className="swish-img" src="/images/logos/swish.jpg" alt="" />
           </div>
         </button>
 
-        <button className="no-btn" type="submit">
+        <button className="no-btn" type="submit" onClick={() => setPaymentMethod("Kort")}>
           <div className="payment-method">
             <span className="no-margin">Kort</span>
             <img className="kort-img" src="/images/logos/cards.png" alt="" />
